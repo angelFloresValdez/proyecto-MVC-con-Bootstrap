@@ -1,0 +1,32 @@
+<button onclick="mostrarAlertaExitoso()">Mostrar alerta exitosa</button>
+<button onclick="mostrarAlertaError()">Mostrar alerta de error</button>
+
+<div>
+    Las alertas se van a mostrar aquí
+</div>
+
+<div id="contenedor-alertas">
+
+</div>
+
+@section Scripts
+{
+    <script>
+        function mostrarAlertaExitoso() {
+            mostrarAlertas('Este es un mensaje exitoso', 'success');
+        }
+
+          function mostrarAlertaError() {
+            mostrarAlertas('Este es un mensaje de error', 'danger');
+        }
+        
+        function mostrarAlertas(mensaje, tipo) {
+            const alerta = document.createElement("div");
+            alerta.innerHTML = `<div class="alert alert-${tipo}" role="alert">${mensaje}</div>`;
+
+            const contenedorAlertas = document.getElementById('contenedor-alertas');
+            contenedorAlertas.append(alerta);
+        }
+    </script>
+}
+
